@@ -70,7 +70,7 @@ module.exports = configure(function (ctx) {
 
       env: {
         API: ctx.dev
-          ? 'http://10.10.10.8:8000'
+          ? 'http://10.10.10.6:8000'
           : 'http://prod.ugd.ro'
       }
 
