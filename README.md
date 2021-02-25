@@ -1,6 +1,6 @@
-# Hachathon Smart City (hsc-front)
+# Hackathon Smart City (hsc-front)
 
-Our implementation
+Hackathon
 
 ## Install the dependencies
 ```bash

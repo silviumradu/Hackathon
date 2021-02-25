@@ -6,17 +6,11 @@
 // Configuration for your app
 // https://quasar.dev/quasar-cli/quasar-conf-js
 /* eslint-env node */
-/* eslint-disable @typescript-eslint/no-var-requires */
-const { configure } = require('quasar/wrappers');
 
-module.exports = configure(function (ctx) {
+module.exports = function (ctx) {
   return {
     // https://quasar.dev/quasar-cli/supporting-ts
-    supportTS: {
-      tsCheckerConfig: {
-        eslint: true
-      }
-    },
+    supportTS: false,
 
     // https://quasar.dev/quasar-cli/prefetch-feature
     // preFetch: true,
@@ -50,7 +44,12 @@ module.exports = configure(function (ctx) {
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
-      vueRouterMode: 'hash', // available values: 'hash', 'history'
+      vueRouterMode: 'history', // available values: 'hash', 'history'
+      env: {
+        API: ctx.dev
+          ? 'http://10.10.10.6:8000'
+          : 'http://prod.ugd.ro'
+      },
 
       // transpile: false,
 
@@ -68,23 +67,14 @@ module.exports = configure(function (ctx) {
       // Options below are automatically set depending on the env, set them if you want to override
       // extractCSS: false,
 
-      env: {
-        API: ctx.dev
-          ? 'http://10.10.10.6:8000'
-          : 'http://prod.ugd.ro'
-      }
-
       // https://quasar.dev/quasar-cli/handling-webpack
       extendWebpack (cfg) {
-          // linting is slow in TS projects, we execute it only for production builds
-        if (ctx.prod) {
-        cfg.module.rules.push({
+          cfg.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
           exclude: /node_modules/
         })
-        }
       },
     },
 
@@ -131,9 +121,9 @@ module.exports = configure(function (ctx) {
       workboxPluginMode: 'GenerateSW', // 'GenerateSW' or 'InjectManifest'
       workboxOptions: {}, // only for GenerateSW
       manifest: {
-        name: 'Hachathon Smart City',
-        short_name: 'Hachathon Smart City',
-        description: 'Our implementation',
+        name: `Hackathon Smart City`,
+        short_name: `Hackathon Smart City`,
+        description: `Hackathon`,
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',
@@ -210,4 +200,4 @@ module.exports = configure(function (ctx) {
       }
     }
   }
-});
+}
