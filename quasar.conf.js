@@ -7,7 +7,7 @@
 // https://quasar.dev/quasar-cli/quasar-conf-js
 /* eslint-env node */
 
-module.exports = function (ctx) {
+module.exports = function (/* ctx */) {
   return {
     // https://quasar.dev/quasar-cli/supporting-ts
     supportTS: false,
@@ -19,13 +19,13 @@ module.exports = function (ctx) {
     // --> boot files are part of "main.js"
     // https://quasar.dev/quasar-cli/boot-files
     boot: [
-
+      
       'axios',
     ],
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
     css: [
-      'app.sass'
+      'app.scss'
     ],
 
     // https://github.com/quasarframework/quasar/tree/dev/extras
@@ -44,12 +44,7 @@ module.exports = function (ctx) {
 
     // Full list of options: https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-build
     build: {
-      vueRouterMode: 'history', // available values: 'hash', 'history'
-      env: {
-        API: ctx.dev
-          ? 'http://10.10.10.6:8000'
-          : 'http://prod.ugd.ro'
-      },
+      vueRouterMode: 'hash', // available values: 'hash', 'history'
 
       // transpile: false,
 
@@ -69,7 +64,7 @@ module.exports = function (ctx) {
 
       // https://quasar.dev/quasar-cli/handling-webpack
       extendWebpack (cfg) {
-          cfg.module.rules.push({
+cfg.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
@@ -123,7 +118,7 @@ module.exports = function (ctx) {
       manifest: {
         name: `Hackathon Smart City`,
         short_name: `Hackathon Smart City`,
-        description: `Hackathon`,
+        description: `Our implementation`,
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',
