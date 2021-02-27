@@ -1,1 +1,78 @@
 // app global css in SCSS form
+
+// This is the project stylesheet
+
+// Colors
+$black: rgba(0, 0, 0, 1);
+$dodger-blue: rgba(45, 156, 219, 1);
+$green: rgba(15, 169, 88, 1);
+$silver: rgba(196, 196, 196, 1);
+$snow: rgba(255, 251, 251, 1);
+$transparent-black: rgba(0, 0, 0, 0.25);
+$transparent-brown: rgba(139, 32, 41, 0.83);
+$transparent-dim-gray: rgba(115, 115, 115, 0.66);
+$transparent-white: rgba(255, 255, 255, 0.63);
+$transparent-white-2: rgba(255, 255, 255, 0.69);
+$white: rgba(255, 255, 255, 1);
+
+// Typographies
+@mixin helvetica-bold {
+  font-family: "Helvetica";
+  font-size: 24px;
+  font-weight: 700;
+  line-height: normal;
+}
+@mixin helvetica-regular {
+  font-family: "Helvetica";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 30px;
+}
+@mixin montserrat-11-bold {
+  font-family: "Montserrat";
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 15px;
+}
+@mixin montserrat-24-bold {
+  font-family: "Montserrat";
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 34px;
+}
+@mixin roboto-14-bold {
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+}
+@mixin roboto-18-bold {
+  font-family: "Roboto";
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 25px;
+}
+@mixin roboto-18-regular {
+  font-family: "Roboto";
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 25px;
+}
+@mixin roboto-18-thin {
+  font-family: "Roboto";
+  font-size: 18px;
+  font-weight: 100;
+  line-height: 25px;
+}
+@mixin roboto-24-bold {
+  font-family: "Roboto";
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 34px;
+}
+@mixin roboto-24-thin {
+  font-family: "Roboto";
+  font-size: 24px;
+  font-weight: 100;
+  line-height: 34px;
+}
