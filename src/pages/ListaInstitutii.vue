@@ -1,4 +1,7 @@
 <template>
+<div class="flex">
+  <div class="fit col-grow items-center justify-center">
+     <div class="q-pa-md row justify-center items-start q-gutter-md">
   <div class="lista-institutii">
     <div class="flex-wrapper-one">
       <p class="header-text-institutii">
@@ -51,6 +54,9 @@
       </p>
     </div>
   </div>
+     </div>
+  </div>
+</div>
 </template>
 
 <script>

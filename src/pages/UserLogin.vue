@@ -1,40 +1,71 @@
 <template>
+  <div class="flex">
+  <div class="fit col-grow items-center justify-center">
+     <div class="q-pa-md row justify-center items-start q-gutter-md">
   <div class="v-login">
     <div class="title">
       <p class="title-text">{{ titleText }}</p>
     </div>
     <div class="email-two">
-      <img
-        alt=""
-        class="email"
-        src="https://static.overlay-tech.com/assets/fe22865d-3554-43ba-ad3d-a05db2fc0ad8.svg"
-      />
-      <p class="emailtelefon-text">
-        {{ emailtelefonText }}
-      </p>
+      <q-input input-class="" input-style="" borderless v-model="tf_email_user" label="EMAIL/TELEFON" >
+        <template v-slot:prepend>
+          <q-icon name="fas fa-envelope" />
+        </template>
+      </q-input>
+
     </div>
     <div class="password">
-      <div class="pass-icon"></div>
-      <p class="emailtelefon-text">{{ passText }}</p>
+      <q-input input-class="" input-style="" :type="isPwd ? 'password' : 'text'" borderless v-model="tf_parola_user" label="Parola" >
+        <template v-slot:prepend>
+          <q-icon name="fas fa-key" />
+        </template>
+        <template v-slot:append>
+          <q-icon
+            :name="isPwd ? 'visibility_off' : 'visibility'"
+            class="cursor-pointer"
+            @click="isPwd = !isPwd"
+          />
+        </template>
+      </q-input>
     </div>
-    <div class="signup">
-      <p class="btn-text">{{ btnText }}</p>
-    </div>
-    <div class="signup-two">
-      <p class="btn-text-two">{{ btnTextTwo }}</p>
-    </div>
-    <p class="forget-pass-text">{{ forgetPassText }}</p>
+    <!-- <div class="signup"> -->
+      <div class="distantare">
+        <q-btn rounded color="red-10" type="submit" :label="btnText" />
+      </div>
+
+      <div class="distantare">
+        <q-btn rounded color="red-10" @click = "redirectRegister()" :label="btnTextTwo" />
+      </div>
+
+      <div class="distantare">
+        <p clickable  @click = "a" >{{forgetPassText}} </p>
+        </div>
+
+
+
+    <!-- </div> -->
   </div>
+   </div>
+    </div>
+     </div>
 </template>
 
 <script>
 export default {
   name: "VLogin",
+  data(){
+    return{
+
+      tf_email_user: '',
+      tf_parola_user: '',
+      isPwd: true
+    }
+  },
   props: {
     titleText: { type: String, default: "log in" },
     emailtelefonText: {
       type: String,
-      default: "EMaIL/Telefon"
+      default: "EMAIL/Telefon"
     },
     passText: { type: String, default: "parola" },
     btnText: { type: String, default: "intră în cont" },
@@ -46,12 +77,20 @@ export default {
       type: String,
       default: "Recupereaza parola"
     }
+  },
+  methods: {
+    redirectRegister(){
+      this.$router.push({name: 'register'})
+    }
   }
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "/src/css/app.scss";
+.distantare {
+  padding: 5px 0px 5px
+}
 .v-login {
   padding: 86px 65px 82px 64px;
   display: flex;

@@ -70,7 +70,10 @@
     </div> -->
 
     <!-- <div class="signup"> -->
-      <q-btn rounded color="red-10" type="submit" :label="btnText" />
+      <div class="distantare"><q-btn rounded color="red-10" type="submit" :label="btnText" /></div>
+      <div class="distantare">
+        <p clickable color = "white" @click = "redirectLogin()" >LOGIN PAGE </p>
+        </div>
     <!-- </div> -->
     </q-form>
   </div>
@@ -117,6 +120,7 @@ export default {
   },
   props: {
     btnText: { type: String, default: "înregistreaza-te" },
+    btnText2: { type: String, default: "Login Page" },
     checkbox: {
       type: String,
       default:
@@ -143,12 +147,20 @@ export default {
     },
     telText: { type: String, default: "telefon" },
     titleText: { type: String, default: "Înregistrare" }
+  },
+  methods: {
+    redirectLogin(){
+      this.$router.push({name: 'login'})
+    }
   }
 };
 </script>
 
 <style lang="scss">
 @import "src/css/app.scss";
+.distantare {
+  padding: 5px 0px 5px
+}
 .v-register-new {
   padding: 88px 65px 79px 64px;
   display: flex;
@@ -221,4 +233,6 @@ export default {
   color: $white;
   text-transform: uppercase;
 }
+
+
 </style>
