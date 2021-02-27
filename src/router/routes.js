@@ -18,6 +18,7 @@ const routes = [
   {
     path: '*',
     component: () => import('pages/Error404.vue')
+    //import Vue from 'vue';
   }
 ]
 
