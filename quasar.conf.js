@@ -25,14 +25,14 @@ module.exports = function (ctx) {
 
     // https://quasar.dev/quasar-cli/quasar-conf-js#Property%3A-css
     css: [
-      'app.sass'
+      'app.scss'
     ],
 
     // https://github.com/quasarframework/quasar/tree/dev/extras
     extras: [
       // 'ionicons-v4',
       // 'mdi-v5',
-      // 'fontawesome-v5',
+      'fontawesome-v5',
       // 'eva-icons',
       // 'themify',
       // 'line-awesome',
@@ -69,7 +69,7 @@ module.exports = function (ctx) {
 
       // https://quasar.dev/quasar-cli/handling-webpack
       extendWebpack (cfg) {
-          cfg.module.rules.push({
+        cfg.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
@@ -100,7 +100,7 @@ module.exports = function (ctx) {
       // (like functional components as one of the examples),
       // you can manually specify Quasar components/directives to be available everywhere:
       //
-      // components: [],
+      components: [],
       // directives: [],
 
       // Quasar plugins
@@ -123,7 +123,7 @@ module.exports = function (ctx) {
       manifest: {
         name: `Hackathon Smart City`,
         short_name: `Hackathon Smart City`,
-        description: `Hackathon`,
+        description: `Our implementation`,
         display: 'standalone',
         orientation: 'portrait',
         background_color: '#ffffff',

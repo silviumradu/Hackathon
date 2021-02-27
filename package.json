@@ -1,7 +1,7 @@
 {
   "name": "hsc-front",
   "version": "0.0.1",
-  "description": "Hackathon",
+  "description": "Our implementation",
   "productName": "Hackathon Smart City",
   "author": "ugd <marian.muntean@stud.etti.upb.ro>",
   "private": true,
