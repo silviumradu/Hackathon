@@ -1,121 +1,169 @@
 <template>
-<!-- <div class="flex"> -->
+  <!-- <div class="flex"> -->
   <div class="flex">
-  <div class="fit col-grow items-center justify-center">
-     <div class="q-pa-md row justify-center items-start q-gutter-md">
-  <div class="v-register-new">
-    <div class="title">
-      <p class="title-text">{{ titleText }}</p>
-    </div>
-    <q-form
-      autocorrect="off"
-      autocapitalize="off"
-      autocomplete="off"
-      spellcheck="false"
-      v-on:submit.prevent="registerUser"
-    >
-    <div class="style-input">
-      <q-input input-class="" input-style="" borderless v-model="tf_nume" label="Nume" >
-        <template v-slot:prepend>
-          <q-icon name="fas fa-user" />
-        </template>
-      </q-input>
-    </div>
-    <div class="style-input">
-      <q-input input-class="" input-style="" borderless v-model="tf_prenume" label="Prenume" >
-        <template v-slot:prepend>
-          <q-icon name="fas fa-user" />
-        </template>
-      </q-input>
-    </div>
-    <div class="style-input">
-      <q-input input-class="" input-style="" :type="isPwd ? 'password' : 'text'" borderless v-model="tf_parola" label="Parola" >
-        <template v-slot:prepend>
-          <q-icon name="fas fa-key" />
-        </template>
-        <template v-slot:append>
-          <q-icon
-            :name="isPwd ? 'visibility_off' : 'visibility'"
-            class="cursor-pointer"
-            @click="isPwd = !isPwd"
-          />
-        </template>
-      </q-input>
-    </div>
-    <div class="style-input">
-      <q-input type="tel" mask="##########" borderless v-model="tf_telefon" label="Telefon" >
-        <template v-slot:prepend>
-          <q-icon name="fas fa-mobile-alt" />
-        </template>
-      </q-input>
-    </div>
-    <div class="style-input">
-      <q-input input-class="" type="email" borderless v-model="tf_email" label="Email" >
-        <template v-slot:prepend>
-          <q-icon name="fas fa-envelope" />
-        </template>
-      </q-input>
-    </div>
+    <div class="fit col-grow items-center justify-center">
+      <div class="q-pa-md row justify-center items-start q-gutter-md">
+        <div class="v-register-new">
+          <div class="title">
+            <p class="title-text">{{ titleText }}</p>
+          </div>
+          <q-form
+            autocorrect="off"
+            autocapitalize="off"
+            autocomplete="off"
+            spellcheck="false"
+            v-on:submit.prevent="registerUser"
+          >
+            <div class="distantare">
+              <q-input
+                rounded
+                outlined
+                bg-color="grey-5"
+                v-model="tf_nume"
+                label="Nume"
+              >
+                <template v-slot:prepend>
+                  <q-icon name="fas fa-user" />
+                </template>
+              </q-input>
+            </div>
+            <div class="distantare">
+              <q-input
+                rounded
+                outlined
+                bg-color="grey-5"
+                v-model="tf_prenume"
+                label="Prenume"
+              >
+                <template v-slot:prepend>
+                  <q-icon name="fas fa-user" />
+                </template>
+              </q-input>
+            </div>
+            <div class="distantare">
+              <q-input
+                rounded
+                outlined
+                bg-color="grey-5"
+                :type="isPwd ? 'password' : 'text'"
+                v-model="tf_parola"
+                label="Parola"
+              >
+                <template v-slot:prepend>
+                  <q-icon name="fas fa-key" />
+                </template>
+                <template v-slot:append>
+                  <q-icon
+                    :name="isPwd ? 'visibility_off' : 'visibility'"
+                    class="cursor-pointer"
+                    @click="isPwd = !isPwd"
+                  />
+                </template>
+              </q-input>
+            </div>
+            <div class="distantare">
+              <q-input
+                type="tel"
+                mask="##########"
+                rounded
+                outlined
+                bg-color="grey-5"
+                v-model="tf_telefon"
+                label="Telefon"
+              >
+                <template v-slot:prepend>
+                  <q-icon name="fas fa-mobile-alt" />
+                </template>
+              </q-input>
+            </div>
+            <div class="distantare">
+              <q-input
+                type="email"
+                rounded
+                outlined
+                bg-color="grey-5"
+                v-model="tf_email"
+                label="Email"
+              >
+                <template v-slot:prepend>
+                  <q-icon name="fas fa-envelope" />
+                </template>
+              </q-input>
+            </div>
 
-    <div class="style-input">
-      <q-input mask="#############" borderless v-model="tf_cnp" label="CNP" >
-        <template v-slot:prepend>
-          <q-icon name="far fa-id-card" />
-        </template>
-      </q-input>
-    </div>
+            <div class="distantare">
+              <q-input
+                mask="#############"
+                rounded
+                outlined
+                bg-color="grey-5"
+                v-model="tf_cnp"
+                label="CNP"
+              >
+                <template v-slot:prepend>
+                  <q-icon name="far fa-id-card" />
+                </template>
+              </q-input>
+            </div>
 
-    <!-- <div class="gdpr">
+            <!-- <div class="gdpr">
       <p class="checkbox-two">{{ checkbox }}</p>
     </div> -->
 
-    <!-- <div class="signup"> -->
-      <div class="distantare"><q-btn rounded color="red-10" type="submit" :label="btnText" /></div>
-      <div class="distantare">
-        <p clickable color = "white" @click = "redirectLogin()" >LOGIN PAGE </p>
+            <div class="distantare">
+              <q-btn rounded color="red-10" type="submit" :label="btnText" />
+            </div>
+          </q-form>
+          <div class="distantare">
+            <div class="text-white">
+              <p clickable class="color: white;" @click="redirectLogin()">
+                LOGIN PAGE
+              </p>
+            </div>
+          </div>
         </div>
-    <!-- </div> -->
-    </q-form>
-  </div>
-</div>
-  </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 export default {
   name: "VRegisterNew",
-  data () {
-  return{
-    tf_nume: '',
-    tf_prenume: '',
-    tf_parola: '',
-    tf_telefon: '',
-    tf_email: '',
-    tf_cnp: '',
-    ck_gdpr: false,
-    isPwd: true
-  }
+  data() {
+    return {
+      tf_nume: "",
+      tf_prenume: "",
+      tf_parola: "",
+      tf_telefon: "",
+      tf_email: "",
+      tf_cnp: "",
+      ck_gdpr: false,
+      isPwd: true
+    };
   },
   methods: {
-    registerUser (){
+    registerUser() {
       if (!this.ck_gdpr) {
-        axios.post('/addUtilizator',
-        {
-          tf_nume_user: this.tf_nume,
-          tf_prenume_user: this.tf_prenume,
-          tf_parola_user: this.tf_parola,
-          tf_telefon_user: this.tf_telefon,
-          tf_email_user: this.tf_email,
-          tf_cnp_user: this.tf_cnp
-        }).then((res) => {
-          console.log(res)
-          this.$router.push({ name: 'home' })
-        }).catch((err) => {
-
-        })
+        axios
+          .post("/api/addUtilizator", {
+            numeUtilizator: this.tf_nume,
+            prenumeUtilizator: this.tf_prenume,
+            password: this.tf_parola,
+            telUtilizator: this.tf_telefon,
+            email: this.tf_email,
+            cnpUtilizator: this.tf_cnp
+          })
+          .then(res => {
+            console.log(res);
+            this.$router.push({ name: "home" });
+          })
+          .catch(err => {});
       }
+    },
+    redirectLogin() {
+      this.$router.push({ name: "login" });
     }
   },
   props: {
@@ -123,8 +171,7 @@ export default {
     btnText2: { type: String, default: "Login Page" },
     checkbox: {
       type: String,
-      default:
-        " Sunt de acord cu prelucrarea datelor cu caracter personal"
+      default: " Sunt de acord cu prelucrarea datelor cu caracter personal"
     },
     emailText: { type: String, default: "email" },
     firstnameIcon: {
@@ -147,11 +194,6 @@ export default {
     },
     telText: { type: String, default: "telefon" },
     titleText: { type: String, default: "Înregistrare" }
-  },
-  methods: {
-    redirectLogin(){
-      this.$router.push({name: 'login'})
-    }
   }
 };
 </script>
@@ -159,7 +201,7 @@ export default {
 <style lang="scss">
 @import "src/css/app.scss";
 .distantare {
-  padding: 5px 0px 5px
+  padding: 5px 0px 5px;
 }
 .v-register-new {
   padding: 88px 65px 79px 64px;
@@ -194,8 +236,6 @@ export default {
   align-items: center;
   border: 1px solid $black;
 }
-
-
 
 .gdpr {
   margin-bottom: 34px;
@@ -233,6 +273,4 @@ export default {
   color: $white;
   text-transform: uppercase;
 }
-
-
 </style>

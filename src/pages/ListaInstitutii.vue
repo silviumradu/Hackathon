@@ -1,62 +1,62 @@
 <template>
-<div class="flex">
-  <div class="fit col-grow items-center justify-center">
-     <div class="q-pa-md row justify-center items-start q-gutter-md">
-  <div class="lista-institutii">
-    <div class="flex-wrapper-one">
-      <p class="header-text-institutii">
-        {{ headerTextInstitutii }}
-      </p>
-    </div>
-    <div class="flex-wrapper-two">
-      <p class="header-text-institutii-two">
-        {{ headerTextInstitutiiTwo }}
-      </p>
-    </div>
-    <div class="flex-wrapper-five">
-      <p class="header-text-institutii-three">
-        {{ headerTextInstitutiiThree }}
-      </p>
-    </div>
-    <div class="flex-wrapper-five">
-      <p class="header-text-institutii-three">
-        {{ headerTextInstitutiiFour }}
-      </p>
-    </div>
-    <div class="flex-wrapper-two">
-      <p class="header-text-institutii-three">
-        {{ headerTextInstitutiiFive }}
-      </p>
-    </div>
-    <div class="flex-wrapper-seven">
-      <p class="header-text-institutii-three">
-        {{ headerTextInstitutiiSix }}
-      </p>
-    </div>
-    <div class="relative-wrapper-one">
-      <div class="flex-wrapper-three">
-        <p class="header-text-institutii-three">
-          {{ headerTextInstitutiiSeven }}
-        </p>
+  <div class="flex">
+    <div class="fit col-grow items-center justify-center">
+      <div class="q-pa-md row justify-center items-start q-gutter-md">
+        <div class="lista-institutii">
+          <div class="flex-wrapper-one">
+            <p class="header-text-institutii">
+              {{ headerTextInstitutii }}
+            </p>
+          </div>
+          <div class="flex-wrapper-two">
+            <p class="header-text-institutii-two">
+              {{ headerTextInstitutiiTwo }}
+            </p>
+          </div>
+          <div class="flex-wrapper-five">
+            <p class="header-text-institutii-three">
+              {{ headerTextInstitutiiThree }}
+            </p>
+          </div>
+          <div class="flex-wrapper-five">
+            <p class="header-text-institutii-three">
+              {{ headerTextInstitutiiFour }}
+            </p>
+          </div>
+          <div class="flex-wrapper-two">
+            <p class="header-text-institutii-three">
+              {{ headerTextInstitutiiFive }}
+            </p>
+          </div>
+          <div class="flex-wrapper-seven">
+            <p class="header-text-institutii-three">
+              {{ headerTextInstitutiiSix }}
+            </p>
+          </div>
+          <div class="relative-wrapper-one">
+            <div class="flex-wrapper-three">
+              <p class="header-text-institutii-three">
+                {{ headerTextInstitutiiSeven }}
+              </p>
+            </div>
+            <p class="header-text-institutii-four">
+              {{ headerTextInstitutiiEight }}
+            </p>
+            <div class="flex-wrapper-eight">
+              <p class="header-text-institutii-three">
+                {{ headerTextInstitutiiNine }}
+              </p>
+            </div>
+          </div>
+          <div class="flex-wrapper-four">
+            <p class="header-text-institutii-two">
+              {{ headerTextInstitutiiTen }}
+            </p>
+          </div>
+        </div>
       </div>
-      <p class="header-text-institutii-four">
-        {{ headerTextInstitutiiEight }}
-      </p>
-      <div class="flex-wrapper-eight">
-        <p class="header-text-institutii-three">
-          {{ headerTextInstitutiiNine }}
-        </p>
-      </div>
-    </div>
-    <div class="flex-wrapper-four">
-      <p class="header-text-institutii-two">
-        {{ headerTextInstitutiiTen }}
-      </p>
     </div>
   </div>
-     </div>
-  </div>
-</div>
 </template>
 
 <script>
@@ -69,48 +69,39 @@ export default {
     },
     headerTextInstitutiiTwo: {
       type: String,
-      default:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      default: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
     headerTextInstitutiiThree: {
       type: String,
-      default:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      default: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
     headerTextInstitutiiFour: {
       type: String,
-      default:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      default: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
     headerTextInstitutiiFive: {
       type: String,
-      default:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      default: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
     headerTextInstitutiiSix: {
       type: String,
-      default:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      default: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
     headerTextInstitutiiSeven: {
       type: String,
-      default:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      default: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
     headerTextInstitutiiEight: {
       type: String,
-      default:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      default: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
     headerTextInstitutiiNine: {
       type: String,
-      default:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      default: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     },
     headerTextInstitutiiTen: {
       type: String,
-      default:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+      default: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
     }
   }
 };
