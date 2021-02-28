@@ -16,11 +16,28 @@
       v-on:submit.prevent="addPayment"
     >
     <div class="style_one">
+    <div class="style-input">
     <q-input input-class="" input-style="" borderless v-model="tf_nume_card" label="Nume card"  > </q-input>
-    <q-input input-class="" input-style="" borderless v-model="tf_numar_card" label="Numar card"  > </q-input>
-    <q-input input-class="" input-style="" borderless v-model="tf_data_expirare" label="Data de expirare" > </q-input>
-    <q-input input-class="" input-style="" borderless v-model="tf_cvv" label="Cvv" > </q-input>
     </div>
+    <div class="style-input">
+    <q-input input-class="" input-style="" borderless mask="################" v-model="tf_numar_card" label="Numar card"  > </q-input>
+    </div>
+    <div class="style-input">
+    <q-input input-class="" input-style="" borderless mask="##/##" v-model="tf_data_expirare" label="Data de expirare" > </q-input>
+    </div>
+    <div class="style-input">
+    <q-input input-class="" input-style="" borderless mask="###" v-model="tf_cvv" label="Cvv" > </q-input>
+    </div></div>
+    <!--div class="btn-pay"></!--div-->
+    <div class="button">
+    <template>
+      <div class="q-pa-md q-gutter-sm">
+      <q-btn color="secondary" class="on-right" label="FINALIZEAZA TRANZACTIA" />
+      </div>
+    </template>
+    </div>
+
+
     <!-- <p class="card-number-text">{{ cardNumberText }}</p>
     <p class="expire-date-text">{{ expireDateText }}</p>
     <p class="cvv-text">{{ cvvText }}</p>
@@ -73,8 +90,7 @@ export default {
     tf_nume_card: '',
     tf_numar_card: '',
     tf_data_expirare: '',
-    tf_cvv: '',
-    isPwd: true
+    tf_cvv: ''
   }
   },
   methods: {
@@ -84,7 +100,8 @@ export default {
         tf_nume_card: this.tf_nume_card,
         tf_numar_card: this.tf_numar_card,
         tf_data_expirare: this.tf_data_expirare,
-        tf_cvv: this.tf_cvv
+        tf_cvv: this.tf_cvv,
+        tf_bnt_pay: this.tf_btn_pay
       }).then((res) => {
         console.log(res)
         this.$router.push({name: 'home'})
@@ -124,31 +141,24 @@ export default {
   border: 1px solid $black;
 }
 .logo {
-  width: 250px;
-  height: 552px;
-
-.style_one {
-
- width: 150px;
- height: 400px;
-}
-
+  width: 300px;
+  height: 200px;
 }
 .title-text {
   @include roboto-18-regular;
   color: $black;
   text-transform: uppercase;
   position: absolute;
-  left: 61px;
-  top: 119px;
+  left: 81px;
+  top: 90px;
 }
 .amount {
   @include roboto-18-regular;
   color: $black;
   text-transform: uppercase;
   position: absolute;
-  left: 61px;
-  top: 146px;
+  left: 121px;
+  top: 126px;
 }
 .card-number-text {
   @include roboto-18-regular;
@@ -175,15 +185,35 @@ export default {
   right: 82px;
   bottom: 333px;
 }
-.btn-pay {
+.style_one {
+  margin-top: 210px;
+}
+.style-input {
+  background-color: $transparent-white-2;
+  margin-bottom: 21px;
+  margin-left: 9px;
+  margin-right: 9px;
+  backdrop-filter: blur(4px);
+  border-radius: 20px;
+  padding: 0px 10px 0px 10px;
+  box-shadow: 0 4px 4px 0 $transparent-black;
+  display: flex;
+  align-items: center;
+  border: 1px solid $black;
+}
+/*.btn-pay {
   width: 201px;
   height: 38px;
   background-color: rgba(111, 207, 151, 1);
   border-radius: 7px 8px 7px 7px;
   position: absolute;
-  left: 86px;
-  bottom: 217px;
+  left: 55px;
+  bottom: 180px;
   border: 1px solid $black;
+}*/
+.on-right {
+  right: -35px;
+  bottom: -10px;
 }
 .tf-expire-date {
   width: 155px;
@@ -241,7 +271,7 @@ export default {
   flex-direction: column;
   align-items: flex-start;
   position: absolute;
-  right: 60px;
+  right: 40px;
   bottom: 70px;
 }
 .relative-wrapper-one {
