@@ -2,122 +2,137 @@
   <!-- <div class="flex"> -->
   <div class="flex bg-image">
     <div class="fit col-grow items-center justify-center">
-      <div class="q-pa-md row justify-center items-start q-gutter-md">
+      <div class="q-pa-md row justify-center items-center q-gutter-md">
         <div class="v-register-new">
           <div class="title">
             <p class="title-text">{{ titleText }}</p>
           </div>
-          <q-form
-            autocorrect="off"
-            autocapitalize="off"
-            autocomplete="off"
-            spellcheck="false"
-            v-on:submit.prevent="registerUser"
-          >
-            <div class="distantare">
-              <q-input
-                rounded
-                outlined
-                bg-color="grey-5"
-                v-model="tf_nume"
-                label="Nume"
+          <div class="row">
+            <div class="column">
+              <q-form
+                autocorrect="off"
+                autocapitalize="off"
+                autocomplete="off"
+                spellcheck="false"
+                v-on:submit.prevent="registerUser"
               >
-                <template v-slot:prepend>
-                  <q-icon name="fas fa-user" />
-                </template>
-              </q-input>
-            </div>
-            <div class="distantare">
-              <q-input
-                rounded
-                outlined
-                bg-color="grey-5"
-                v-model="tf_prenume"
-                label="Prenume"
-              >
-                <template v-slot:prepend>
-                  <q-icon name="fas fa-user" />
-                </template>
-              </q-input>
-            </div>
-            <div class="distantare">
-              <q-input
-                rounded
-                outlined
-                bg-color="grey-5"
-                :type="isPwd ? 'password' : 'text'"
-                v-model="tf_parola"
-                label="Parola"
-              >
-                <template v-slot:prepend>
-                  <q-icon name="fas fa-key" />
-                </template>
-                <template v-slot:append>
-                  <q-icon
-                    :name="isPwd ? 'visibility_off' : 'visibility'"
-                    class="cursor-pointer"
-                    @click="isPwd = !isPwd"
+                <div class="distantare">
+                  <q-input
+                    rounded
+                    outlined
+                    bg-color="grey-5"
+                    v-model="tf_nume"
+                    label="Nume"
+                  >
+                    <template v-slot:prepend>
+                      <q-icon name="fas fa-user" />
+                    </template>
+                  </q-input>
+                </div>
+                <div class="distantare">
+                  <q-input
+                    rounded
+                    outlined
+                    bg-color="grey-5"
+                    v-model="tf_prenume"
+                    label="Prenume"
+                  >
+                    <template v-slot:prepend>
+                      <q-icon name="fas fa-user" />
+                    </template>
+                  </q-input>
+                </div>
+                <div class="distantare">
+                  <q-input
+                    rounded
+                    outlined
+                    bg-color="grey-5"
+                    :type="isPwd ? 'password' : 'text'"
+                    v-model="tf_parola"
+                    label="Parola"
+                  >
+                    <template v-slot:prepend>
+                      <q-icon name="fas fa-key" />
+                    </template>
+                    <template v-slot:append>
+                      <q-icon
+                        :name="isPwd ? 'visibility_off' : 'visibility'"
+                        class="cursor-pointer"
+                        @click="isPwd = !isPwd"
+                      />
+                    </template>
+                  </q-input>
+                </div>
+                <div class="distantare">
+                  <q-input
+                    type="tel"
+                    mask="##########"
+                    rounded
+                    outlined
+                    bg-color="grey-5"
+                    v-model="tf_telefon"
+                    label="Telefon"
+                  >
+                    <template v-slot:prepend>
+                      <q-icon name="fas fa-mobile-alt" />
+                    </template>
+                  </q-input>
+                </div>
+                <div class="distantare">
+                  <q-input
+                    type="email"
+                    rounded
+                    outlined
+                    bg-color="grey-5"
+                    v-model="tf_email"
+                    label="Email"
+                  >
+                    <template v-slot:prepend>
+                      <q-icon name="fas fa-envelope" />
+                    </template>
+                  </q-input>
+                </div>
+
+                <div class="distantare">
+                  <q-input
+                    mask="#############"
+                    rounded
+                    outlined
+                    bg-color="grey-5"
+                    v-model="tf_cnp"
+                    label="CNP"
+                  >
+                    <template v-slot:prepend>
+                      <q-icon name="far fa-id-card" />
+                    </template>
+                  </q-input>
+                </div>
+                <div class="distantare">
+                  <q-btn
+                    rounded
+                    color="red-10"
+                    type="submit"
+                    label="Trimite Cerere"
                   />
-                </template>
-              </q-input>
+                </div>
+              </q-form>
             </div>
-            <div class="distantare">
-              <q-input
-                type="tel"
-                mask="##########"
-                rounded
-                outlined
-                bg-color="grey-5"
-                v-model="tf_telefon"
-                label="Telefon"
-              >
-                <template v-slot:prepend>
-                  <q-icon name="fas fa-mobile-alt" />
-                </template>
-              </q-input>
-            </div>
-            <div class="distantare">
-              <q-input
-                type="email"
-                rounded
-                outlined
-                bg-color="grey-5"
-                v-model="tf_email"
-                label="Email"
-              >
-                <template v-slot:prepend>
-                  <q-icon name="fas fa-envelope" />
-                </template>
-              </q-input>
-            </div>
-
-            <div class="distantare">
-              <q-input
-                mask="#############"
-                rounded
-                outlined
-                bg-color="grey-5"
-                v-model="tf_cnp"
-                label="CNP"
-              >
-                <template v-slot:prepend>
-                  <q-icon name="far fa-id-card" />
-                </template>
-              </q-input>
-            </div>
-
-            <!-- <div class="gdpr">
-      <p class="checkbox-two">{{ checkbox }}</p>
-    </div> -->
-
-            <div class="distantare">
-              <q-btn rounded color="red-10" type="submit" :label="btnText" />
-            </div>
-          </q-form>
-          <div class="distantare">
-            <p clickable style="color: white;" @click="redirectLogin()">
-              LOGIN PAGE
-            </p>
+          </div>
+          <div class="column">
+            <q-file
+              v-model="files"
+              label="Pick files"
+              filled
+              counter
+              :counter-label="counterLabelFn"
+              max-files="3"
+              multiple
+              style="max-width: 300px"
+            >
+              <template v-slot:prepend>
+                <q-icon name="attach_file" />
+              </template>
+            </q-file>
           </div>
         </div>
       </div>
@@ -138,10 +153,14 @@ export default {
       tf_email: "",
       tf_cnp: "",
       ck_gdpr: false,
-      isPwd: true
+      isPwd: true,
+      files: null
     };
   },
   methods: {
+    counterLabelFn({ totalSize, filesNumber, maxFiles }) {
+      return `${filesNumber} files of ${maxFiles} | ${totalSize}`;
+    },
     registerUser() {
       if (!this.ck_gdpr) {
         axios
@@ -180,8 +199,6 @@ export default {
     }
   },
   props: {
-    btnText: { type: String, default: "înregistreaza-te" },
-    btnText2: { type: String, default: "Login Page" },
     checkbox: {
       type: String,
       default: " Sunt de acord cu prelucrarea datelor cu caracter personal"
@@ -206,7 +223,7 @@ export default {
         "https://static.overlay-tech.com/assets/6ef41be6-5c1f-4dd5-ada2-e7565643bfb3.svg"
     },
     telText: { type: String, default: "telefon" },
-    titleText: { type: String, default: "Înregistrare" }
+    titleText: { type: String, default: "Cerere" }
   }
 };
 </script>

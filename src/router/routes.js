@@ -10,7 +10,8 @@ const routes = [
       { path: 'test',name:'test',component:() => import('pages/testApi.vue')},
       { path: 'paymentgateway',name:'paymentgateway',component:() => import('pages/PaymentGateway.vue')},
       { path: 'listainstitutii',name:'listainstitutii',component:() => import('pages/ListaInstitutii.vue')},
-      { path: 'cerereclient',name:'cerereclient',component:() => import('pages/CerereClient.vue')}
+      { path: 'cerereclient',name:'cerereclient',component:() => import('pages/CerereClient.vue')},
+      { path: 'sucursale',name:'sucursale',component:() => import('pages/Sucursale.vue')}
     ]
   },
 
