@@ -13,11 +13,11 @@
             spellcheck="false"
             v-on:submit.prevent="login"
           >
-            <div class="email-two">
+            <div class="distantare">
               <q-input
-                input-class=""
-                input-style=""
-                borderless
+                rounded
+                outlined
+                bg-color="grey-5"
                 v-model="tf_email_user"
                 label="Email"
               >
@@ -26,12 +26,13 @@
                 </template>
               </q-input>
             </div>
-            <div class="password">
+
+            <div class="distantare">
               <q-input
-                input-class=""
-                input-style=""
+                rounded
+                outlined
+                bg-color="grey-5"
                 :type="isPwd ? 'password' : 'text'"
-                borderless
                 v-model="tf_parola_user"
                 label="Parola"
               >
@@ -57,12 +58,14 @@
               rounded
               color="red-10"
               @click="redirectRegister()"
-              :label="btnTextTwo"
+              :label="signupText"
             />
           </div>
 
           <div class="distantare">
-            <p clickable class="color: white;" @click="forgetPass">{{ forgetPassText }} </p>
+            <p clickable style="color: white;" @click="forgetPass()">
+              {{ forgetPassText }}
+            </p>
           </div>
 
           <!-- </div> -->
@@ -91,7 +94,7 @@ export default {
     },
     passText: { type: String, default: "parola" },
     btnText: { type: String, default: "intră în cont" },
-    btnTextTwo: {
+    signupText: {
       type: String,
       default: "înregistreaza-te"
     },
@@ -112,7 +115,14 @@ export default {
           this.email = "";
           this.password = "";
           this.$forceUpdate();
-          this.$router.push({ name: "home" });
+          this.$q.notify({
+            color: "green-5",
+            position: "center",
+            textColor: "white",
+            icon: "warning",
+            message: "Autentificat cu succes!"
+          });
+          this.$router.push({ name: "listainstitutii" });
         })
         .catch(err => {
           console.log(err);
@@ -133,6 +143,8 @@ export default {
       this.$router.push({ name: "register" });
     },
     forgetPass() {
+
+
       this.$router.push({ name: "forgetPass" });
     }
   }

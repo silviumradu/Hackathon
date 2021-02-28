@@ -14,91 +14,89 @@
               spellcheck="false"
               v-on:submit.prevent="addPayment"
             >
-              <div class="style_one">
-                <div class="style-input">
-                  <q-input
-                    input-class=""
-                    input-style=""
-                    borderless
-                    v-model="tf_nume_card"
-                    label="Nume card"
-                  >
-                  </q-input>
-                </div>
-                <div class="style-input">
-                  <q-input
-                    input-class=""
-                    input-style=""
-                    borderless
-                    mask="################"
-                    v-model="tf_numar_card"
-                    label="Numar card"
-                  >
-                  </q-input>
-                </div>
-                <div class="style-input">
-                  <q-input
-                    input-class=""
-                    input-style=""
-                    borderless
-                    mask="##/##"
-                    v-model="tf_data_expirare"
-                    label="Data de expirare"
-                  >
-                  </q-input>
-                </div>
-                <div class="style-input">
-                  <q-input
-                    input-class=""
-                    input-style=""
-                    borderless
-                    mask="###"
-                    v-model="tf_cvv"
-                    label="Cvv"
-                  >
-                  </q-input>
-                </div>
-              </div>
-
-              <div class="button">
-                <template>
-                  <div class="q-pa-md q-gutter-sm">
-                    <q-btn
-                      color="secondary"
-                      class="on-right"
-                      label="FINALIZEAZA TRANZACTIA"
-                    />
-                  </div>
-                </template>
-              </div>
-
-              <div class="logo">
-                <img
-                  alt=""
-                  class="logosvisa"
-                  src="https://static.overlay-tech.com/assets/8d8f23b2-12c4-4223-9925-0d8cf99ecbfc.svg"
+            <div class="style_one">
+                <div class="distantare">
+                <q-input
+                  rounded
+                  outlined
+                  bg-color="grey-1"
+                  v-model="tf_nume_card"
+                  label="Nume card"
                 />
-                <div class="logosmastercard">
-                  <div class="relative-wrapper-one">
-                    <div class="vector"></div>
-                    <img
-                      alt=""
-                      class="vector-two"
-                      src="https://static.overlay-tech.com/assets/c1a87e89-e793-481b-bb37-93b14c3074af.svg"
-                    /><img
-                      alt=""
-                      class="vector-three"
-                      src="https://static.overlay-tech.com/assets/07867232-047c-4303-856a-48d019c92f1b.svg"
-                    />
-                  </div>
-                  <img
-                    alt=""
-                    class="vector-four"
-                    src="https://static.overlay-tech.com/assets/db90868a-fb79-4a4e-8349-a37827952682.svg"
+                </div>
+
+              <div class="distantare">
+                <q-input
+                  rounded
+                  outlined
+                  bg-color="grey-1"
+                  mask="################"
+                  v-model="tf_numar_card"
+                  label="Numar card"
+                />
+              </div>
+
+              <div class="distantare">
+                <q-input
+                  rounded
+                  outlined
+                  bg-color="grey-1"
+                  mask="##/##"
+                  v-model="tf_data_expirare"
+                  label="Data de expirare"
+                />
+              </div>
+              <div class="distantare">
+                <q-input
+                  rounded
+                  outlined
+                  bg-color="grey-1"
+                  mask="###"
+                  v-model="tf_cvv"
+                  label="Cvv"
+                />
+              </div>
+            </div>
+            </q-form>
+
+            <div class="button">
+              <template>
+                <div class="q-pa-md q-gutter-sm">
+                  <q-btn
+                    color="secondary"
+                    class="on-right"
+                    label="FINALIZEAZA TRANZACTIA"
                   />
                 </div>
+              </template>
+            </div>
+
+            <div class="logo">
+              <img
+                alt=""
+                class="logosvisa"
+                src="https://static.overlay-tech.com/assets/8d8f23b2-12c4-4223-9925-0d8cf99ecbfc.svg"
+              />
+              <div class="logosmastercard">
+                <div class="relative-wrapper-one">
+                  <div class="vector"></div>
+                  <img
+                    alt=""
+                    class="vector-two"
+                    src="https://static.overlay-tech.com/assets/c1a87e89-e793-481b-bb37-93b14c3074af.svg"
+                  /><img
+                    alt=""
+                    class="vector-three"
+                    src="https://static.overlay-tech.com/assets/07867232-047c-4303-856a-48d019c92f1b.svg"
+                  />
+                </div>
+                <img
+                  alt=""
+                  class="vector-four"
+                  src="https://static.overlay-tech.com/assets/db90868a-fb79-4a4e-8349-a37827952682.svg"
+                />
               </div>
-            </q-form>
+            </div>
           </div>
         </div>
       </div>
@@ -151,6 +149,9 @@ export default {
 
 <style lang="scss">
 @import "../src/css/app.scss";
+.distantare {
+  padding: 5px 10px 5px 10px;
+}
 .v-paymentgateway {
   background-color: $white;
   padding: 29px 28px 29px 29px;

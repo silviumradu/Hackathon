@@ -15,7 +15,7 @@
           Hackathon Smart City
         </q-toolbar-title>
 
-        <div>1.0a</div>
+        <div>0.1a</div>
       </q-toolbar>
     </q-header>
 
@@ -30,7 +30,10 @@
           Link-uri
         </q-item-label>
         <q-item clickable v-on:click="$router.push({ name: 'login' })"
-          >A</q-item
+          >Login</q-item
+        >
+        <q-item clickable v-on:click="$router.push({ name: 'listainstitutii' })"
+          >Lista institutii</q-item
         >
       </q-list>
     </q-drawer>
