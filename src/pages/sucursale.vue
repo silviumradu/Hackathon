@@ -74,7 +74,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "/src/css/app.scss";
+@import "../src/css/app.scss";
 .v-sucursale {
   background-color: $white;
   padding: 29px 28px 29px 29px;

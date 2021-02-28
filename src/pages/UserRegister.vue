@@ -1,6 +1,6 @@
 <template>
   <!-- <div class="flex"> -->
-  <div class="flex">
+  <div class="flex bg-image">
     <div class="fit col-grow items-center justify-center">
       <div class="q-pa-md row justify-center items-start q-gutter-md">
         <div class="v-register-new">
@@ -115,11 +115,9 @@
             </div>
           </q-form>
           <div class="distantare">
-            <div class="text-white">
-              <p clickable class="color: white;" @click="redirectLogin()">
-                LOGIN PAGE
-              </p>
-            </div>
+            <p clickable style="color: white;" @click="redirectLogin()">
+              LOGIN PAGE
+            </p>
           </div>
         </div>
       </div>
@@ -157,9 +155,24 @@ export default {
           })
           .then(res => {
             console.log(res);
+            this.$q.notify({
+              color: "green-5",
+              position: "center",
+              textColor: "white",
+              icon: "warning",
+              message: "Utilizatorul a fost creeat cu succes!"
+            });
             this.$router.push({ name: "home" });
           })
-          .catch(err => {});
+          .catch(err => {
+            this.$q.notify({
+              color: "red-5",
+              position: "center",
+              textColor: "white",
+              icon: "warning",
+              message: "Eroare!"
+            });
+          });
       }
     },
     redirectLogin() {
@@ -199,7 +212,12 @@ export default {
 </script>
 
 <style lang="scss">
-@import "src/css/app.scss";
+@import "../src/css/app.scss";
+.bg-image {
+  background-image: url("../assets/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .distantare {
   padding: 5px 0px 5px;
 }
@@ -208,7 +226,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background-image: url("https://static.overlay-tech.com/assets/45aaa931-0671-4841-a8ee-aa9f62aaff8d.png");
+  // background-image: url("https://static.overlay-tech.com/assets/45aaa931-0671-4841-a8ee-aa9f62aaff8d.png");
 }
 .title {
   background-color: $transparent-dim-gray;

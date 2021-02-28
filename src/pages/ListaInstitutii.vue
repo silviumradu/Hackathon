@@ -1,5 +1,5 @@
 <template>
-  <div class="flex">
+  <div class="flex bg-image">
     <div class="fit col-grow items-center justify-center">
       <div class="q-pa-md row justify-center items-start q-gutter-md">
         <div class="lista-institutii">
@@ -28,31 +28,7 @@
               {{ headerTextInstitutiiFive }}
             </p>
           </div>
-          <div class="flex-wrapper-seven">
-            <p class="header-text-institutii-three">
-              {{ headerTextInstitutiiSix }}
-            </p>
-          </div>
-          <div class="relative-wrapper-one">
-            <div class="flex-wrapper-three">
-              <p class="header-text-institutii-three">
-                {{ headerTextInstitutiiSeven }}
-              </p>
-            </div>
-            <p class="header-text-institutii-four">
-              {{ headerTextInstitutiiEight }}
-            </p>
-            <div class="flex-wrapper-eight">
-              <p class="header-text-institutii-three">
-                {{ headerTextInstitutiiNine }}
-              </p>
-            </div>
-          </div>
-          <div class="flex-wrapper-four">
-            <p class="header-text-institutii-two">
-              {{ headerTextInstitutiiTen }}
-            </p>
-          </div>
+
         </div>
       </div>
     </div>
@@ -107,14 +83,22 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import "/src/css/app.scss";
+<style lang="scss">
+@import "../src/css/app.scss";
+.distantare {
+  padding: 5px 0px 5px;
+}
+.bg-image {
+  background-image: url("../assets/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 .lista-institutii {
   padding: 86px 27px 86px 30px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background-image: url("https://static.overlay-tech.com/assets/4749d5c9-a826-46d7-be0e-63fb5234f9fd.png");
+  // background-image: url("https://static.overlay-tech.com/assets/4749d5c9-a826-46d7-be0e-63fb5234f9fd.png");
 }
 .flex-wrapper-one {
   background-color: $transparent-dim-gray;

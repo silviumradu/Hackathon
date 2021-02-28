@@ -1,5 +1,5 @@
 <template>
-  <div class="flex">
+  <div class="flex bg-image">
     <div class="fit col-grow items-center justify-center">
       <div class="q-pa-md row justify-center items-start q-gutter-md">
         <div class="v-login">
@@ -13,25 +13,26 @@
             spellcheck="false"
             v-on:submit.prevent="login"
           >
-            <div class="email-two">
+            <div class="distantare">
               <q-input
-                input-class=""
-                input-style=""
-                borderless
+                rounded
+                outlined
+                bg-color="grey-5"
                 v-model="tf_email_user"
-                label="Email/Telefon"
+                label="Email"
               >
                 <template v-slot:prepend>
                   <q-icon name="fas fa-envelope" />
                 </template>
               </q-input>
             </div>
-            <div class="password">
+
+            <div class="distantare">
               <q-input
-                input-class=""
-                input-style=""
+                rounded
+                outlined
+                bg-color="grey-5"
                 :type="isPwd ? 'password' : 'text'"
-                borderless
                 v-model="tf_parola_user"
                 label="Parola"
               >
@@ -57,12 +58,14 @@
               rounded
               color="red-10"
               @click="redirectRegister()"
-              :label="btnTextTwo"
+              :label="signupText"
             />
           </div>
 
           <div class="distantare">
-            <p clickable @click="forgetPass">{{ forgetPassText }}</p>
+            <p clickable style="color: white;" @click="forgetPass()">
+              {{ forgetPassText }}
+            </p>
           </div>
 
           <!-- </div> -->
@@ -84,14 +87,14 @@ export default {
     };
   },
   props: {
-    titleText: { type: String, default: "log in" },
+    titleText: { type: String, default: "Autentificare" },
     emailtelefonText: {
       type: String,
-      default: "EMAIL/Telefon"
+      default: "Email"
     },
     passText: { type: String, default: "parola" },
     btnText: { type: String, default: "intră în cont" },
-    btnTextTwo: {
+    signupText: {
       type: String,
       default: "înregistreaza-te"
     },
@@ -112,7 +115,14 @@ export default {
           this.email = "";
           this.password = "";
           this.$forceUpdate();
-          this.$router.push({ name: "admin" });
+          this.$q.notify({
+            color: "green-5",
+            position: "center",
+            textColor: "white",
+            icon: "warning",
+            message: "Autentificat cu succes!"
+          });
+          this.$router.push({ name: "listainstitutii" });
         })
         .catch(err => {
           console.log(err);
@@ -133,6 +143,8 @@ export default {
       this.$router.push({ name: "register" });
     },
     forgetPass() {
+
+
       this.$router.push({ name: "forgetPass" });
     }
   }
@@ -140,16 +152,21 @@ export default {
 </script>
 
 <style lang="scss">
-@import "/src/css/app.scss";
+@import "../src/css/app.scss";
 .distantare {
   padding: 5px 0px 5px;
+}
+.bg-image {
+  background-image: url("../assets/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .v-login {
   padding: 86px 65px 82px 64px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background-image: url("https://static.overlay-tech.com/assets/6b72939d-70e4-4875-8e8d-b3d13d911cbd.png");
+  // background-image: url("https://static.overlay-tech.com/assets/6b72939d-70e4-4875-8e8d-b3d13d911cbd.png");
 }
 .title {
   background-color: $transparent-dim-gray;
