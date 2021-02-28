@@ -1,5 +1,5 @@
 <template>
-  <div class="flex">
+  <div class="flex bg-image">
     <div class="fit col-grow items-center justify-center">
       <div class="q-pa-md row justify-center items-start q-gutter-md">
         <div class="v-login">
@@ -19,7 +19,7 @@
                 input-style=""
                 borderless
                 v-model="tf_email_user"
-                label="Email/Telefon"
+                label="Email"
               >
                 <template v-slot:prepend>
                   <q-icon name="fas fa-envelope" />
@@ -62,7 +62,7 @@
           </div>
 
           <div class="distantare">
-            <p clickable @click="forgetPass">{{ forgetPassText }}</p>
+            <p clickable class="color: white;" @click="forgetPass">{{ forgetPassText }} </p>
           </div>
 
           <!-- </div> -->
@@ -84,10 +84,10 @@ export default {
     };
   },
   props: {
-    titleText: { type: String, default: "log in" },
+    titleText: { type: String, default: "Autentificare" },
     emailtelefonText: {
       type: String,
-      default: "EMAIL/Telefon"
+      default: "Email"
     },
     passText: { type: String, default: "parola" },
     btnText: { type: String, default: "intră în cont" },
@@ -112,7 +112,7 @@ export default {
           this.email = "";
           this.password = "";
           this.$forceUpdate();
-          this.$router.push({ name: "admin" });
+          this.$router.push({ name: "home" });
         })
         .catch(err => {
           console.log(err);
@@ -140,16 +140,21 @@ export default {
 </script>
 
 <style lang="scss">
-@import "/src/css/app.scss";
+@import "../src/css/app.scss";
 .distantare {
   padding: 5px 0px 5px;
+}
+.bg-image {
+  background-image: url("../assets/bg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .v-login {
   padding: 86px 65px 82px 64px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background-image: url("https://static.overlay-tech.com/assets/6b72939d-70e4-4875-8e8d-b3d13d911cbd.png");
+  // background-image: url("https://static.overlay-tech.com/assets/6b72939d-70e4-4875-8e8d-b3d13d911cbd.png");
 }
 .title {
   background-color: $transparent-dim-gray;

@@ -107,14 +107,14 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
-@import "/src/css/app.scss";
+<style lang="scss">
+@import "../src/css/app.scss";
 .lista-institutii {
   padding: 86px 27px 86px 30px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background-image: url("https://static.overlay-tech.com/assets/4749d5c9-a826-46d7-be0e-63fb5234f9fd.png");
+  // background-image: url("https://static.overlay-tech.com/assets/4749d5c9-a826-46d7-be0e-63fb5234f9fd.png");
 }
 .flex-wrapper-one {
   background-color: $transparent-dim-gray;

@@ -199,7 +199,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "src/css/app.scss";
+@import "../src/css/app.scss";
 .distantare {
   padding: 5px 0px 5px;
 }
@@ -208,7 +208,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  background-image: url("https://static.overlay-tech.com/assets/45aaa931-0671-4841-a8ee-aa9f62aaff8d.png");
+  // background-image: url("https://static.overlay-tech.com/assets/45aaa931-0671-4841-a8ee-aa9f62aaff8d.png");
 }
 .title {
   background-color: $transparent-dim-gray;
