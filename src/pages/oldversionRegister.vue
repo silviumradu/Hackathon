@@ -44,8 +44,7 @@ export default {
     btnText: { type: String, default: "înregistreaza-te" },
     checkbox: {
       type: String,
-      default:
-        " Sunt de acord cu prelucrarea datelor cu caracter personal"
+      default: " Sunt de acord cu prelucrarea datelor cu caracter personal"
     },
     cnpIcon: {
       type: String,
@@ -197,7 +196,7 @@ export default {
   width: 165px;
   @include montserrat-11-bold;
   color: $white;
-  text-transform: uppercase
+  text-transform: uppercase;
 }
 .signup {
   background-color: $transparent-brown;

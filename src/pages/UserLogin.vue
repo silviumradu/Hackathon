@@ -1,65 +1,87 @@
 <template>
   <div class="flex">
-  <div class="fit col-grow items-center justify-center">
-     <div class="q-pa-md row justify-center items-start q-gutter-md">
-  <div class="v-login">
-    <div class="title">
-      <p class="title-text">{{ titleText }}</p>
-    </div>
-    <div class="email-two">
-      <q-input input-class="" input-style="" borderless v-model="tf_email_user" label="EMAIL/TELEFON" >
-        <template v-slot:prepend>
-          <q-icon name="fas fa-envelope" />
-        </template>
-      </q-input>
+    <div class="fit col-grow items-center justify-center">
+      <div class="q-pa-md row justify-center items-start q-gutter-md">
+        <div class="v-login">
+          <div class="title">
+            <p class="title-text">{{ titleText }}</p>
+          </div>
+          <q-form
+            autocorrect="off"
+            autocapitalize="off"
+            autocomplete="off"
+            spellcheck="false"
+            v-on:submit.prevent="login"
+          >
+            <div class="email-two">
+              <q-input
+                input-class=""
+                input-style=""
+                borderless
+                v-model="tf_email_user"
+                label="Email/Telefon"
+              >
+                <template v-slot:prepend>
+                  <q-icon name="fas fa-envelope" />
+                </template>
+              </q-input>
+            </div>
+            <div class="password">
+              <q-input
+                input-class=""
+                input-style=""
+                :type="isPwd ? 'password' : 'text'"
+                borderless
+                v-model="tf_parola_user"
+                label="Parola"
+              >
+                <template v-slot:prepend>
+                  <q-icon name="fas fa-key" />
+                </template>
+                <template v-slot:append>
+                  <q-icon
+                    :name="isPwd ? 'visibility_off' : 'visibility'"
+                    class="cursor-pointer"
+                    @click="isPwd = !isPwd"
+                  />
+                </template>
+              </q-input>
+            </div>
+            <!-- <div class="signup"> -->
+            <div class="distantare">
+              <q-btn rounded color="red-10" type="submit" :label="btnText" />
+            </div>
+          </q-form>
+          <div class="distantare">
+            <q-btn
+              rounded
+              color="red-10"
+              @click="redirectRegister()"
+              :label="btnTextTwo"
+            />
+          </div>
 
-    </div>
-    <div class="password">
-      <q-input input-class="" input-style="" :type="isPwd ? 'password' : 'text'" borderless v-model="tf_parola_user" label="Parola" >
-        <template v-slot:prepend>
-          <q-icon name="fas fa-key" />
-        </template>
-        <template v-slot:append>
-          <q-icon
-            :name="isPwd ? 'visibility_off' : 'visibility'"
-            class="cursor-pointer"
-            @click="isPwd = !isPwd"
-          />
-        </template>
-      </q-input>
-    </div>
-    <!-- <div class="signup"> -->
-      <div class="distantare">
-        <q-btn rounded color="red-10" type="submit" :label="btnText" />
-      </div>
+          <div class="distantare">
+            <p clickable @click="forgetPass">{{ forgetPassText }}</p>
+          </div>
 
-      <div class="distantare">
-        <q-btn rounded color="red-10" @click = "redirectRegister()" :label="btnTextTwo" />
-      </div>
-
-      <div class="distantare">
-        <p clickable  @click = "a" >{{forgetPassText}} </p>
+          <!-- </div> -->
         </div>
-
-
-
-    <!-- </div> -->
-  </div>
-   </div>
+      </div>
     </div>
-     </div>
+  </div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "VLogin",
-  data(){
-    return{
-
-      tf_email_user: '',
-      tf_parola_user: '',
+  data() {
+    return {
+      tf_email_user: "",
+      tf_parola_user: "",
       isPwd: true
-    }
+    };
   },
   props: {
     titleText: { type: String, default: "log in" },
@@ -79,8 +101,39 @@ export default {
     }
   },
   methods: {
-    redirectRegister(){
-      this.$router.push({name: 'register'})
+    login() {
+      axios
+        .post("/api/loginUtilizator", {
+          email: this.tf_email_user,
+          password: this.tf_parola_user
+        })
+        .then(res => {
+          localStorage.setItem("usertoken", res.data.token);
+          this.email = "";
+          this.password = "";
+          this.$forceUpdate();
+          this.$router.push({ name: "admin" });
+        })
+        .catch(err => {
+          console.log(err);
+          this.$q.notify({
+            color: "red-5",
+            position: "center",
+            textColor: "white",
+            icon: "warning",
+            message: "Utilizator sau parola gresita!"
+          });
+        });
+      // this.emitMethod()
+    },
+    emitMethod() {
+      EventBus.$emit("logged-in", "loggedin");
+    },
+    redirectRegister() {
+      this.$router.push({ name: "register" });
+    },
+    forgetPass() {
+      this.$router.push({ name: "forgetPass" });
     }
   }
 };
@@ -89,7 +142,7 @@ export default {
 <style lang="scss">
 @import "/src/css/app.scss";
 .distantare {
-  padding: 5px 0px 5px
+  padding: 5px 0px 5px;
 }
 .v-login {
   padding: 86px 65px 82px 64px;
