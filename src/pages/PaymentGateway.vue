@@ -1,27 +1,54 @@
 <template>
-<div class="flex">
-  <div class="fit col-grow items-center justify-center">
-     <div class="q-pa-md row justify-center items-start q-gutter-md">
-  <div class="v-paymentgateway">
+  <div class="flex">
+    <div class="fit col-grow items-center justify-center">
+      <div class="q-pa-md row justify-center items-start q-gutter-md">
+        <div class="v-paymentgateway">
+          <div class="card-view">
+            <p class="title-text">{{ titleText }}</p>
+            <p class="amount">{{ amount }}</p>
 
-    <div class="card-view">
-    <p class="title-text">{{ titleText }}</p>
-    <p class="amount">{{ amount }}</p>
-
-       <q-form
-      autocorrect="off"
-      autocapitalize="off"
-      autocomplete="off"
-      spellcheck="false"
-      v-on:submit.prevent="addPayment"
-    >
-    <div class="style_one">
-    <q-input input-class="" input-style="" borderless v-model="tf_nume_card" label="Nume card"  > </q-input>
-    <q-input input-class="" input-style="" borderless v-model="tf_numar_card" label="Numar card"  > </q-input>
-    <q-input input-class="" input-style="" borderless v-model="tf_data_expirare" label="Data de expirare" > </q-input>
-    <q-input input-class="" input-style="" borderless v-model="tf_cvv" label="Cvv" > </q-input>
-    </div>
-    <!-- <p class="card-number-text">{{ cardNumberText }}</p>
+            <q-form
+              autocorrect="off"
+              autocapitalize="off"
+              autocomplete="off"
+              spellcheck="false"
+              v-on:submit.prevent="addPayment"
+            >
+              <div class="style_one">
+                <q-input
+                  input-class=""
+                  input-style=""
+                  borderless
+                  v-model="tf_nume_card"
+                  label="Nume card"
+                >
+                </q-input>
+                <q-input
+                  input-class=""
+                  input-style=""
+                  borderless
+                  v-model="tf_numar_card"
+                  label="Numar card"
+                >
+                </q-input>
+                <q-input
+                  input-class=""
+                  input-style=""
+                  borderless
+                  v-model="tf_data_expirare"
+                  label="Data de expirare"
+                >
+                </q-input>
+                <q-input
+                  input-class=""
+                  input-style=""
+                  borderless
+                  v-model="tf_cvv"
+                  label="Cvv"
+                >
+                </q-input>
+              </div>
+              <!-- <p class="card-number-text">{{ cardNumberText }}</p>
     <p class="expire-date-text">{{ expireDateText }}</p>
     <p class="cvv-text">{{ cvvText }}</p>
     <div class="btn-pay"></div>
@@ -30,68 +57,67 @@
     <div class="tf-card-number"></div>
     <div class="tf-card-name"></div>
     <p class="card-name-text">{{ cardNameText }}</p> -->
-    <div class="logo">
-    <img
-      alt=""
-      class="logosvisa"
-      src="https://static.overlay-tech.com/assets/8d8f23b2-12c4-4223-9925-0d8cf99ecbfc.svg"
-    />
-    <div class="logosmastercard">
-      <div class="relative-wrapper-one">
-        <div class="vector"></div>
-        <img
-          alt=""
-          class="vector-two"
-          src="https://static.overlay-tech.com/assets/c1a87e89-e793-481b-bb37-93b14c3074af.svg"
-        /><img
-          alt=""
-          class="vector-three"
-          src="https://static.overlay-tech.com/assets/07867232-047c-4303-856a-48d019c92f1b.svg"
-        />
-      </div>
-      <img
-        alt=""
-        class="vector-four"
-        src="https://static.overlay-tech.com/assets/db90868a-fb79-4a4e-8349-a37827952682.svg"
-      />
-
-    </div> </div>
-          </q-form>
+              <div class="logo">
+                <img
+                  alt=""
+                  class="logosvisa"
+                  src="https://static.overlay-tech.com/assets/8d8f23b2-12c4-4223-9925-0d8cf99ecbfc.svg"
+                />
+                <div class="logosmastercard">
+                  <div class="relative-wrapper-one">
+                    <div class="vector"></div>
+                    <img
+                      alt=""
+                      class="vector-two"
+                      src="https://static.overlay-tech.com/assets/c1a87e89-e793-481b-bb37-93b14c3074af.svg"
+                    /><img
+                      alt=""
+                      class="vector-three"
+                      src="https://static.overlay-tech.com/assets/07867232-047c-4303-856a-48d019c92f1b.svg"
+                    />
+                  </div>
+                  <img
+                    alt=""
+                    class="vector-four"
+                    src="https://static.overlay-tech.com/assets/db90868a-fb79-4a4e-8349-a37827952682.svg"
+                  />
+                </div>
+              </div>
+            </q-form>
           </div>
+        </div>
+      </div>
     </div>
-    </div>
-    </div>
-    </div>
+  </div>
 </template>
 
 <script>
-import axios from 'axios'
+import axios from "axios";
 export default {
   name: "paymentgateway",
-  data () {
-    return{
-    tf_nume_card: '',
-    tf_numar_card: '',
-    tf_data_expirare: '',
-    tf_cvv: '',
-    isPwd: true
-  }
+  data() {
+    return {
+      tf_nume_card: "",
+      tf_numar_card: "",
+      tf_data_expirare: "",
+      tf_cvv: "",
+      isPwd: true
+    };
   },
   methods: {
-    addPayment (){
-      axios.post('/addPay',
-      {
-        tf_nume_card: this.tf_nume_card,
-        tf_numar_card: this.tf_numar_card,
-        tf_data_expirare: this.tf_data_expirare,
-        tf_cvv: this.tf_cvv
-      }).then((res) => {
-        console.log(res)
-        this.$router.push({name: 'home'})
-      }).catch((err) => {
-
+    addPayment() {
+      axios
+        .post("/addPay", {
+          tf_nume_card: this.tf_nume_card,
+          tf_numar_card: this.tf_numar_card,
+          tf_data_expirare: this.tf_data_expirare,
+          tf_cvv: this.tf_cvv
         })
-
+        .then(res => {
+          console.log(res);
+          this.$router.push({ name: "home" });
+        })
+        .catch(err => {});
     }
   },
   props: {
@@ -108,7 +134,7 @@ export default {
 };
 </script>
 
-<style lang="scss" >
+<style lang="scss">
 @import "/src/css/app.scss";
 .v-paymentgateway {
   background-color: $white;
@@ -127,12 +153,10 @@ export default {
   width: 250px;
   height: 552px;
 
-.style_one {
-
- width: 150px;
- height: 400px;
-}
-
+  .style_one {
+    width: 150px;
+    height: 400px;
+  }
 }
 .title-text {
   @include roboto-18-regular;
@@ -233,7 +257,6 @@ export default {
   position: absolute;
   left: 40px;
   bottom: 94px;
-
 }
 .logosmastercard {
   padding: 0 4px 0px 4px;
