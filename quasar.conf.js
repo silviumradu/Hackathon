@@ -49,7 +49,7 @@ module.exports = function (ctx) {
       env: {
         API: ctx.dev
           ? 'http://10.10.10.6:8000'
-          : 'http://prod.ugd.ro'
+          : 'https://prod.ugd.ro'
       },
 
       // transpile: false,
