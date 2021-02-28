@@ -1,54 +1,44 @@
 <template>
-  <div class="flex">
-    <div class="fit col-grow items-center justify-center">
-      <div class="q-pa-md row justify-center items-start q-gutter-md">
-        <div class="v-paymentgateway">
-          <div class="card-view">
-            <p class="title-text">{{ titleText }}</p>
-            <p class="amount">{{ amount }}</p>
+<div class="flex">
+  <div class="fit col-grow items-center justify-center">
+     <div class="q-pa-md row justify-center items-start q-gutter-md">
+  <div class="v-paymentgateway">
 
-            <q-form
-              autocorrect="off"
-              autocapitalize="off"
-              autocomplete="off"
-              spellcheck="false"
-              v-on:submit.prevent="addPayment"
-            >
-              <div class="style_one">
-                <q-input
-                  input-class=""
-                  input-style=""
-                  borderless
-                  v-model="tf_nume_card"
-                  label="Nume card"
-                >
-                </q-input>
-                <q-input
-                  input-class=""
-                  input-style=""
-                  borderless
-                  v-model="tf_numar_card"
-                  label="Numar card"
-                >
-                </q-input>
-                <q-input
-                  input-class=""
-                  input-style=""
-                  borderless
-                  v-model="tf_data_expirare"
-                  label="Data de expirare"
-                >
-                </q-input>
-                <q-input
-                  input-class=""
-                  input-style=""
-                  borderless
-                  v-model="tf_cvv"
-                  label="Cvv"
-                >
-                </q-input>
-              </div>
-              <!-- <p class="card-number-text">{{ cardNumberText }}</p>
+    <div class="card-view">
+    <p class="title-text">{{ titleText }}</p>
+    <p class="amount">{{ amount }}</p>
+
+       <q-form
+      autocorrect="off"
+      autocapitalize="off"
+      autocomplete="off"
+      spellcheck="false"
+      v-on:submit.prevent="addPayment"
+    >
+    <div class="style_one">
+    <div class="style-input">
+    <q-input input-class="" input-style="" borderless v-model="tf_nume_card" label="Nume card"  > </q-input>
+    </div>
+    <div class="style-input">
+    <q-input input-class="" input-style="" borderless mask="################" v-model="tf_numar_card" label="Numar card"  > </q-input>
+    </div>
+    <div class="style-input">
+    <q-input input-class="" input-style="" borderless mask="##/##" v-model="tf_data_expirare" label="Data de expirare" > </q-input>
+    </div>
+    <div class="style-input">
+    <q-input input-class="" input-style="" borderless mask="###" v-model="tf_cvv" label="Cvv" > </q-input>
+    </div></div>
+    <!--div class="btn-pay"></!--div-->
+    <div class="button">
+    <template>
+      <div class="q-pa-md q-gutter-sm">
+      <q-btn color="secondary" class="on-right" label="FINALIZEAZA TRANZACTIA" />
+      </div>
+    </template>
+    </div>
+
+
+    <!-- <p class="card-number-text">{{ cardNumberText }}</p>
     <p class="expire-date-text">{{ expireDateText }}</p>
     <p class="cvv-text">{{ cvvText }}</p>
     <div class="btn-pay"></div>
@@ -57,67 +47,68 @@
     <div class="tf-card-number"></div>
     <div class="tf-card-name"></div>
     <p class="card-name-text">{{ cardNameText }}</p> -->
-              <div class="logo">
-                <img
-                  alt=""
-                  class="logosvisa"
-                  src="https://static.overlay-tech.com/assets/8d8f23b2-12c4-4223-9925-0d8cf99ecbfc.svg"
-                />
-                <div class="logosmastercard">
-                  <div class="relative-wrapper-one">
-                    <div class="vector"></div>
-                    <img
-                      alt=""
-                      class="vector-two"
-                      src="https://static.overlay-tech.com/assets/c1a87e89-e793-481b-bb37-93b14c3074af.svg"
-                    /><img
-                      alt=""
-                      class="vector-three"
-                      src="https://static.overlay-tech.com/assets/07867232-047c-4303-856a-48d019c92f1b.svg"
-                    />
-                  </div>
-                  <img
-                    alt=""
-                    class="vector-four"
-                    src="https://static.overlay-tech.com/assets/db90868a-fb79-4a4e-8349-a37827952682.svg"
-                  />
-                </div>
-              </div>
-            </q-form>
-          </div>
-        </div>
+    <div class="logo">
+    <img
+      alt=""
+      class="logosvisa"
+      src="https://static.overlay-tech.com/assets/8d8f23b2-12c4-4223-9925-0d8cf99ecbfc.svg"
+    />
+    <div class="logosmastercard">
+      <div class="relative-wrapper-one">
+        <div class="vector"></div>
+        <img
+          alt=""
+          class="vector-two"
+          src="https://static.overlay-tech.com/assets/c1a87e89-e793-481b-bb37-93b14c3074af.svg"
+        /><img
+          alt=""
+          class="vector-three"
+          src="https://static.overlay-tech.com/assets/07867232-047c-4303-856a-48d019c92f1b.svg"
+        />
       </div>
+      <img
+        alt=""
+        class="vector-four"
+        src="https://static.overlay-tech.com/assets/db90868a-fb79-4a4e-8349-a37827952682.svg"
+      />
+
+    </div> </div>
+          </q-form>
+          </div>
     </div>
-  </div>
+    </div>
+    </div>
+    </div>
 </template>
 
 <script>
-import axios from "axios";
+import axios from 'axios'
 export default {
   name: "paymentgateway",
-  data() {
-    return {
-      tf_nume_card: "",
-      tf_numar_card: "",
-      tf_data_expirare: "",
-      tf_cvv: "",
-      isPwd: true
-    };
+  data () {
+    return{
+    tf_nume_card: '',
+    tf_numar_card: '',
+    tf_data_expirare: '',
+    tf_cvv: ''
+  }
   },
   methods: {
-    addPayment() {
-      axios
-        .post("/addPay", {
-          tf_nume_card: this.tf_nume_card,
-          tf_numar_card: this.tf_numar_card,
-          tf_data_expirare: this.tf_data_expirare,
-          tf_cvv: this.tf_cvv
+    addPayment (){
+      axios.post('/addPay',
+      {
+        tf_nume_card: this.tf_nume_card,
+        tf_numar_card: this.tf_numar_card,
+        tf_data_expirare: this.tf_data_expirare,
+        tf_cvv: this.tf_cvv,
+        tf_bnt_pay: this.tf_btn_pay
+      }).then((res) => {
+        console.log(res)
+        this.$router.push({name: 'home'})
+      }).catch((err) => {
+
         })
-        .then(res => {
-          console.log(res);
-          this.$router.push({ name: "home" });
-        })
-        .catch(err => {});
+
     }
   },
   props: {
@@ -134,7 +125,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" >
 @import "/src/css/app.scss";
 .v-paymentgateway {
   background-color: $white;
@@ -150,29 +141,24 @@ export default {
   border: 1px solid $black;
 }
 .logo {
-  width: 250px;
-  height: 552px;
-
-  .style_one {
-    width: 150px;
-    height: 400px;
-  }
+  width: 300px;
+  height: 200px;
 }
 .title-text {
   @include roboto-18-regular;
   color: $black;
   text-transform: uppercase;
   position: absolute;
-  left: 61px;
-  top: 119px;
+  left: 81px;
+  top: 90px;
 }
 .amount {
   @include roboto-18-regular;
   color: $black;
   text-transform: uppercase;
   position: absolute;
-  left: 61px;
-  top: 146px;
+  left: 121px;
+  top: 126px;
 }
 .card-number-text {
   @include roboto-18-regular;
@@ -199,15 +185,35 @@ export default {
   right: 82px;
   bottom: 333px;
 }
-.btn-pay {
+.style_one {
+  margin-top: 210px;
+}
+.style-input {
+  background-color: $transparent-white-2;
+  margin-bottom: 21px;
+  margin-left: 9px;
+  margin-right: 9px;
+  backdrop-filter: blur(4px);
+  border-radius: 20px;
+  padding: 0px 10px 0px 10px;
+  box-shadow: 0 4px 4px 0 $transparent-black;
+  display: flex;
+  align-items: center;
+  border: 1px solid $black;
+}
+/*.btn-pay {
   width: 201px;
   height: 38px;
   background-color: rgba(111, 207, 151, 1);
   border-radius: 7px 8px 7px 7px;
   position: absolute;
-  left: 86px;
-  bottom: 217px;
+  left: 55px;
+  bottom: 180px;
   border: 1px solid $black;
+}*/
+.on-right {
+  right: -35px;
+  bottom: -10px;
 }
 .tf-expire-date {
   width: 155px;
@@ -257,6 +263,7 @@ export default {
   position: absolute;
   left: 40px;
   bottom: 94px;
+
 }
 .logosmastercard {
   padding: 0 4px 0px 4px;
@@ -264,7 +271,7 @@ export default {
   flex-direction: column;
   align-items: flex-start;
   position: absolute;
-  right: 60px;
+  right: 40px;
   bottom: 70px;
 }
 .relative-wrapper-one {
